@@ -1,0 +1,24 @@
+<!-- views/addToyForm.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Toy</title>
+</head>
+
+<body>
+  <h1>Add a New Toy</h1>
+  <form action="/toys/new" method="POST">
+    <label for="name">Toy Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="description">Toy Description:</label>
+    <textarea id="description" name="description" required></textarea>
+    <br>
+    <button type="submit">Add Toy</button>
+  </form>
+</body>
+
+</html>

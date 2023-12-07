@@ -1,0 +1,62 @@
+Viewing Toy Listings:
+Scenario: As a Martha’s Good Toys customer, I can see a web page listing all toys from the database.
+Test Steps:
+Open the web page.
+Verify that the list of toys is displayed.
+
+Fetching Toys via REST API:
+Scenario: As a Martha’s Good Toys business partner, I can fetch all toys from the database via the REST API. The records will be returned as JSON data.
+Test Steps:
+Make a GET request to the API endpoint for toys.
+Verify that the response contains JSON data with the list of toys.
+
+Adding a New Toy:
+Scenario: As a Martha’s Good Toys staff member, I can see a web page that allows me to add a new toy to the database.
+Test Steps:
+Open the web page for adding a new toy.
+Fill in the required details and submit the form.
+Verify that the new toy is added to the database.
+
+Updating Toy Information:
+Scenario: As a customer, I can update my preferred toy information on the web page.
+Test Steps:
+Open the web page for editing toy information.
+Modify the toy details and save the changes.
+Verify that the toy's information is updated in the database.
+
+Deleting a Toy via API:
+Scenario: As a customer, I can delete a toy via the REST API.
+Test Steps:
+Make a DELETE request to the API endpoint for a specific toy.
+Verify that the toy is deleted from the database.
+
+Error Handling - Invalid Toy Data:
+Scenario: As a user, I submit a form with invalid toy data.
+Test Steps:
+Open the relevant web page.
+Submit the form with invalid toy data.
+Verify that the application handles and displays appropriate error messages.
+
+Error Handling - Nonexistent Toy:
+Scenario: As a user, I attempt to edit or delete a toy that doesn't exist.
+Test Steps:
+Perform the action on a nonexistent toy.
+Verify that the application handles the scenario gracefully, possibly with an error message.
+
+Performance Testing - Load Time for Toy Listings:
+Scenario: Simulate a scenario with a large number of toys.
+Test Steps:
+Populate the database with a substantial amount of toy data.
+Measure and verify the load time of the web page listing all toys.
+
+Cross-Browser Compatibility for Toy Listings:
+Scenario: Users access the application from different browsers.
+Test Steps:
+Open the application in multiple browsers (e.g., Chrome, Firefox, Safari).
+Verify that the UI and functionality remain consistent.
+
+API Security - Authorization for Toy API:
+Scenario: Attempt to access toy API endpoints without proper authorization.
+Test Steps:
+Make API requests without valid authentication.
+Verify that the server returns a proper unauthorized response.

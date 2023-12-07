@@ -1,0 +1,20 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toy List</title>
+</head>
+
+<body>
+  <h1>Toy List</h1>
+  <ul>
+    <% toys.forEach((toy) => { %>
+      <li><%= toy.name %> - <%= toy.description %></li>
+    <% }); %>
+  </ul>
+</body>
+
+</html>

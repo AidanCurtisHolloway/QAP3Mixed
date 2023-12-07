@@ -1,7 +1,22 @@
 // src/controllers/toyController.js
 const toyModel = require('../models/toyModel');
 
-const toyController = {
+  const toyController = {
+    // View-related function
+    getAllToysView: async (req, res) => {
+      try {
+        const toys = await toyModel.getAllToys();
+        res.render('index', { toys });
+      } catch (error) {
+        console.error('Error fetching toys:', error);
+        res.status(500).send('Internal Server Error');
+      }
+    },
+  getAddToyForm: (req, res) => {
+    res.render('addToyForm');
+  },
+
+  // API-related functions
   getAllToys: async (req, res) => {
     try {
       const toys = await toyModel.getAllToys();
@@ -12,17 +27,13 @@ const toyController = {
     }
   },
 
-  getToyByName: async (req, res) => {
-    const { name } = req.params;
+  createToy: async (req, res) => {
+    const { name, category, price, quantityInStock } = req.body;
     try {
-      const toy = await toyModel.getToyByName(name);
-      if (toy) {
-        res.json({ toy });
-      } else {
-        res.status(404).json({ error: 'Toy not found' });
-      }
+      const newToy = await toyModel.createToy(name, category, price, quantityInStock);
+      res.json({ message: 'Toy created successfully', toy: newToy });
     } catch (error) {
-      console.error(`Error fetching toy with name ${name}:`, error);
+      console.error('Error creating toy:', error);
       res.status(500).json({ error: 'Internal Server Error' });
     }
   },
@@ -35,17 +46,6 @@ const toyController = {
       res.json({ message: `Toy ${name} updated successfully` });
     } catch (error) {
       console.error(`Error updating toy ${name}:`, error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-  },
-
-  createToy: async (req, res) => {
-    const { name, category, price, quantityInStock } = req.body;
-    try {
-      const newToy = await toyModel.createToy(name, category, price, quantityInStock);
-      res.json({ message: 'Toy created successfully', toy: newToy });
-    } catch (error) {
-      console.error('Error creating toy:', error);
       res.status(500).json({ error: 'Internal Server Error' });
     }
   },

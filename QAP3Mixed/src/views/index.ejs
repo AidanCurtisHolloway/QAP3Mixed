@@ -1,20 +1,22 @@
-<!-- views/index.ejs -->
+<!-- src/views/index.ejs -->
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toy List</title>
+  <title>Toy Store</title>
 </head>
-
 <body>
-  <h1>Toy List</h1>
+  <h1>Toy Store</h1>
   <ul>
-    <% toys.forEach((toy) => { %>
-      <li><%= toy.name %> - <%= toy.description %></li>
+    <% toys.forEach(toy => { %>
+      <li>
+        <%= toy.name %> - <%= toy.category %> - $<%= toy.price %> - Quantity: <%= toy.quantity_in_stock %>
+        <a href="/toys/<%= toy.toy_id %>/edit">Edit</a>
+        <a href="/toys/<%= toy.toy_id %>/delete">Delete</a>
+      </li>
     <% }); %>
+    <a href="/toys/new">Add New Toy</a>
   </ul>
 </body>
-
 </html>

@@ -1,9 +1,8 @@
-// index.js
 const express = require('express');
 const methodOverride = require('method-override');
 const apiRoutes = require('./src/routes/apiRoutes');
 const webRoutes = require('./src/routes/webRoutes');
-const db = require('./src/db/db'); // Import the database connection
+const db = require('./src/db/db.js'); // Import the database connection
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,8 +13,8 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 
 // Routes
-app.use('/api', apiRoutes);
-app.use('/', webRoutes);
+app.use('/api', apiRoutes); // API routes
+app.use('/', webRoutes); // Web routes
 
 // Start the server
 app.listen(PORT, () => {
